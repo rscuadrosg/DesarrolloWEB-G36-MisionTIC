@@ -3,12 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var database = require("./config/database")
+var database = require("./config/database");
+var auth = require("./auth/main_auth");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 var empleadosRouter = require('./routes/empleados.router');
 var designsRouter = require('./routes/designs.router');
+var usersRouter = require('./routes/users.router');
 
 //declaracion uso de Express
 var app = express();
@@ -23,9 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mongo Connection
 database.mongoConnect();
 
-// Router
-app.use('/', indexRouter);
+//use del router de login de usuarios
 app.use('/users', usersRouter);
+
+//autenticacion
+app.use(auth);
+
+// Router
 app.use('/empleados', empleadosRouter);
 app.use('/designs', designsRouter);
 
