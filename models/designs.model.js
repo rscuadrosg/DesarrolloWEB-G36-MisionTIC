@@ -7,7 +7,6 @@ const DesignsSchema = new Schema({
     descripcion:{type: String, required: false, max:150},
     urlimg:{type: String, require: true}
 
-    
 });
 
 module.exports = mongoose.model("designs", DesignsSchema);
