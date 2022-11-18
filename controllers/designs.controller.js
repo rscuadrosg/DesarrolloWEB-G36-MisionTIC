@@ -26,7 +26,7 @@ exports.create = function(req,res){
 
         response.exito = false,
         response.msg = "El Diseño se gaurdo correctamente"
-        res.json(response)
+        res.status(201).json(response)
     })
 
 }
