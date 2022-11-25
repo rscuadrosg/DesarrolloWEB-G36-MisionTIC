@@ -26,7 +26,7 @@ exports.create = function(req,res){
             return;
         }
 
-        response.exito = false,
+        response.exito = true,
         response.msg = "El Empleado se gaurdo correctamente"
         res.json(response)
     })

@@ -26,6 +26,7 @@ exports.create = function(req,res){
 
         response.exito = false,
         response.msg = "El Diseño se gaurdo correctamente"
+        //ESTADO 201 - CREATED
         res.status(201).json(response)
     })
 
@@ -34,6 +35,7 @@ exports.create = function(req,res){
 // METODO PARA BUSCAR
 exports.find = function(req,res){
     Design.find(function(err, designs){
+        //
         res.json(designs)
     })
 }
